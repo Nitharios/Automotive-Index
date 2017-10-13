@@ -1,13 +1,13 @@
--- Create a new postgres user named `indexed_cars_user`
--- CREATE USER indexed_cars_user;
--- Create a new database named `indexed_cars` owned by `indexed_cars_user`
--- \c indexed_cars_user;
+-- DROP TABLE IF EXISTS car_models;
+-- -- Create a new postgres user named `indexed_cars_user`
+-- -- CREATE USER indexed_cars_user;
+-- -- Create a new database named `indexed_cars` owned by `indexed_cars_user`
 -- DROP DATABASE IF EXISTS indexed_cars;
 -- CREATE DATABASE indexed_cars OWNER = indexed_cars_user;
--- Run the provided `scripts/car_models.sql` script on the `indexed_cars` database
+-- -- Run the provided `scripts/car_models.sql` script on the `indexed_cars` database
 -- \c indexed_cars;
 -- \i scripts/car_models.sql;
--- -- Run the provided `scripts/car_model_data.sql` script on the `indexed_cars` database **10 times** 
+-- -- -- Run the provided `scripts/car_model_data.sql` script on the `indexed_cars` database **10 times** 
 -- \i scripts/car_model_data.sql; 
 -- \i scripts/car_model_data.sql;
 -- \i scripts/car_model_data.sql; 
@@ -26,10 +26,10 @@
 --   WHERE make_code LIKE '%LAM%';
 -- 27.824ms
 -- Run a query to list all `model_title` values where the `make_code` is `'NISSAN'`, and the `model_code` is `'GT-R'` without any duplicate rows, and note the time somewhere. (should have 1 result)
--- SELECT DISTINCT model_title
---   FROM car_models
---   WHERE make_code = 'NISSAN'
---   AND model_code = 'GT-R';
+SELECT DISTINCT model_title
+  FROM car_models
+  WHERE make_code = 'NISSAN'
+  AND model_code = 'GT-R';
 -- 25.549ms
 -- Run a query to list all `make_code`, `model_code`, `model_title`, and year from `car_models` where the `make_code` is `'LAM'`, and note the time somewhere. (should have 1360 rows)
 -- SELECT make_code, 
