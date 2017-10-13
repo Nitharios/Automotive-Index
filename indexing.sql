@@ -19,17 +19,20 @@
 -- \i scripts/car_model_data.sql; 
 -- \i scripts/car_model_data.sql; 
   --  _there should be **223380** rows in `car_models`_
-
+-- CREATE INDEX 
+--   ON car_models(make_code, make_title, model_code, model_title, year);
 -- Run a query to get a list of all `make_title` values from the `car_models` table where the `make_code` is `'LAM'`, without any duplicate rows, and note the time somewhere. (should have 1 result)
+-- CREATE INDEX
+--   ON car_models(make_code);
 -- SELECT DISTINCT make_title
 --   FROM car_models
---   WHERE make_code LIKE '%LAM%';
+--   WHERE make_code = 'LAM';
 -- 27.824ms
 -- Run a query to list all `model_title` values where the `make_code` is `'NISSAN'`, and the `model_code` is `'GT-R'` without any duplicate rows, and note the time somewhere. (should have 1 result)
-SELECT DISTINCT model_title
-  FROM car_models
-  WHERE make_code = 'NISSAN'
-  AND model_code = 'GT-R';
+-- SELECT DISTINCT model_title
+--   FROM car_models
+--   WHERE make_code = 'NISSAN'
+--   AND model_code = 'GT-R';
 -- 25.549ms
 -- Run a query to list all `make_code`, `model_code`, `model_title`, and year from `car_models` where the `make_code` is `'LAM'`, and note the time somewhere. (should have 1360 rows)
 -- SELECT make_code, 
